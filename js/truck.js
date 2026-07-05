@@ -1,65 +1,89 @@
-/*=========================================
-        GARBAGE TRUCK SIMULATION
-=========================================*/
+/*==================================================
+        SMART WASTE MANAGEMENT SYSTEM
+                truck.js
+==================================================*/
 
-let truckMarker = null;
+let garbageTruckMarker = null;
+let truckAnimation = null;
 
-const truckRoute = [
+const truckIcon = L.divIcon({
+    html: `
+        <div style="
+            font-size:30px;
+            transform:rotate(0deg);
+        ">
+            🚛
+        </div>
+    `,
+    className: "",
+    iconSize: [40, 40],
+    iconAnchor: [20, 20]
+});
 
-    [12.9650,77.5900], // Garage
+let truckRoute = [];
 
-    ...smartBins.map(bin => [bin.lat, bin.lng]),
+let truckIndex = 0;
 
-    [12.9650,77.5900] // Return to Garage
+function buildTruckRoute() {
 
-];
+    truckRoute = [];
 
-let currentIndex = 0;
+    // Garage
 
-let animation = null;
+    truckRoute.push([12.9650, 77.5900]);
+
+    // All Smart Bins
+
+    smartBins.forEach(bin => {
+
+        truckRoute.push([bin.lat, bin.lng]);
+
+    });
+
+    // Return Garage
+
+    truckRoute.push([12.9650, 77.5900]);
+
+}
 
 function startTruck() {
 
     if (!map) return;
 
-    if (truckMarker) {
+    buildTruckRoute();
 
-        map.removeLayer(truckMarker);
+    if (garbageTruckMarker) {
+
+        map.removeLayer(garbageTruckMarker);
 
     }
 
-    truckMarker = L.marker(truckRoute[0])
+    garbageTruckMarker = L.marker(truckRoute[0], {
 
-        .addTo(map)
+        icon: truckIcon
 
-        .bindPopup("🚛 Garbage Truck");
+    }).addTo(map);
 
-    moveTruck();
+    garbageTruckMarker.bindPopup("🚛 Garbage Truck");
+
+    truckIndex = 0;
+
+    startAnimation();
 
 }
 
-function moveTruck() {
+function startAnimation() {
 
-    animation = setInterval(() => {
+    if (truckAnimation) {
 
-        currentIndex++;
+        clearInterval(truckAnimation);
 
-        if (currentIndex >= truckRoute.length) {
+    }
 
-            currentIndex = 0;
+    truckAnimation = setInterval(() => {
 
-        }
+        moveToNextStop();
 
-        truckMarker.setLatLng(truckRoute[currentIndex]);
-
-        truckMarker.bindPopup(
-
-            "🚛 Garbage Truck<br><br>Current Stop : "
-
-            + (currentIndex + 1)
-
-        );
-
-    }, 3000);
+    }, 4000);
 
 }
