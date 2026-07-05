@@ -1,0 +1,161 @@
+<!-- ===========================================
+                HOME DASHBOARD
+============================================ -->
+
+<!-- Welcome Banner -->
+
+<div class="welcome-banner">
+
+    <div>
+
+        <h2>Welcome Back, Isra 👋</h2>
+
+        <p>Monitor your Smart Waste Management System in real time.</p>
+
+    </div>
+
+    <button class="primary-btn">
+
+        <i class="bi bi-file-earmark-bar-graph"></i>
+
+        View Reports
+
+    </button>
+
+</div>
+
+
+<!-- Statistics Cards -->
+
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <div class="stat-icon blue">
+
+            <i class="bi bi-trash3-fill"></i>
+
+        </div>
+
+        <div class="stat-info">
+
+            <h2 id="binsCount">125</h2>
+
+            <p>Total Smart Bins</p>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon green">
+
+            <i class="bi bi-truck"></i>
+
+        </div>
+
+        <div class="stat-info">
+
+            <h2 id="truckCount">12</h2>
+
+            <p>Active Trucks</p>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon orange">
+
+            <i class="bi bi-exclamation-triangle-fill"></i>
+
+        </div>
+
+        <div class="stat-info">
+
+            <h2 id="alertCount">8</h2>
+
+            <p>Active Alerts</p>
+
+        </div>
+
+    </div>
+
+    <div class="stat-card">
+
+        <div class="stat-icon red">
+
+            <i class="bi bi-check-circle-fill"></i>
+
+        </div>
+
+        <div class="stat-info">
+
+            <h2 id="collectionCount">340</h2>
+
+            <p>Today's Collections</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Map + Alerts -->
+
+<div class="home-grid">
+
+    <!-- Map -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header">
+
+            <h4>
+
+                <i class="bi bi-geo-alt-fill"></i>
+
+                Live Collection Map
+
+            </h4>
+
+            <span class="live-status">
+
+                ● LIVE
+
+            </span>
+
+        </div>
+
+        <div id="map"></div>
+
+    </div>
+
+    <!-- Alerts -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header">
+
+            <h4>
+
+                <i class="bi bi-bell-fill"></i>
+
+                Recent Alerts
+
+            </h4>
+
+        </div>
+
+        <div id="alertsContainer">
+
+            <!-- Alerts will be added here -->
+
+        </div>
+
+    </div>
+
+</div>
