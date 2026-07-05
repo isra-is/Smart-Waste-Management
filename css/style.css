@@ -954,3 +954,95 @@ body.landing-body{
     background: #16a34a;
     transform: scale(1.05);
 }
+
+/*=================================
+        LIVE ACTIVITY
+==================================*/
+
+#activityFeed{
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+}
+
+.activity-item{
+
+    padding:15px;
+
+    background:#f8fafc;
+
+    border-left:5px solid #2563eb;
+
+    border-radius:12px;
+
+    animation:fadeIn .4s ease;
+
+}
+
+.activity-time{
+
+    font-size:12px;
+
+    color:#6b7280;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/*====================================
+        COMMAND CENTER
+====================================*/
+
+.dashboard-info{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:20px;
+
+}
+
+.dashboard-info div{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(8px);
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    font-weight:600;
+
+}
+
+.user-name{
+
+    color:#fde047;
+
+}
+
+#welcomeClock{
+
+    font-size:18px;
+
+}

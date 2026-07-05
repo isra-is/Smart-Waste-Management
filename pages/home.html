@@ -6,21 +6,40 @@
 
 <div class="welcome-banner">
 
-    <div>
+    <div class="welcome-left">
 
-        <h2>Welcome Back, Isra 👋</h2>
+        <h2>
+            Welcome Back,
+            <span class="user-name">
+                Isra 👋
+            </span>
+        </h2>
 
-        <p>Monitor your Smart Waste Management System in real time.</p>
+        <p>
+            Smart Waste Management Control Center
+        </p>
+
+        <div class="dashboard-info">
+
+            <div id="liveDate"></div>
+
+            <div id="liveClockCard"></div>
+
+        </div>
 
     </div>
 
-    <button class="primary-btn">
+    <div class="welcome-right">
 
-        <i class="bi bi-file-earmark-bar-graph"></i>
+        <button class="primary-btn" id="reportBtn">
 
-        View Reports
+            <i class="bi bi-file-earmark-bar-graph"></i>
 
-    </button>
+            View Reports
+
+        </button>
+
+    </div>
 
 </div>
 
@@ -133,6 +152,31 @@
         <div id="map"></div>
 
     </div>
+
+    <!-- ==========================
+        Live Activity
+=========================== -->
+
+<div class="dashboard-card mt-4">
+
+    <div class="card-header">
+
+        <h4>
+            <i class="bi bi-activity"></i>
+            Live Activity
+        </h4>
+
+        <span class="live-status">
+            ● LIVE
+        </span>
+
+    </div>
+
+    <div id="activityFeed">
+
+    </div>
+
+</div>
 
     <!-- Alerts -->
 

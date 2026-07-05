@@ -61,6 +61,7 @@ if(page === "home"){
             loadAlerts();
         }
 
+        initializeDashboard();
     }, 200);
 
 }

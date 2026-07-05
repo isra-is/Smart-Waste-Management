@@ -175,6 +175,12 @@ function collectWaste(bin) {
 
     bin.fill = 0;
 
+    addActivity(
+    `🚛 Truck collected ${bin.name}`
+);
+
+updateStatistics();
+
     updateBinMarker(bin);
 
     garbageTruckMarker.bindPopup(
