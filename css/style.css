@@ -728,3 +728,229 @@ a{
     }
 
 }
+
+/*=========================================
+        SMART BINS
+=========================================*/
+
+.page-header{
+
+    margin-bottom:30px;
+
+}
+
+.page-header h2{
+
+    font-weight:700;
+
+}
+
+.page-header p{
+
+    color:#6b7280;
+
+}
+
+.bins-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:25px;
+
+}
+
+.bin-card{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.bin-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.bin-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.status-badge{
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/*=========================================
+        TRUCKS
+=========================================*/
+
+.truck-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:25px;
+
+}
+
+.truck-card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.truck-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:20px;
+
+}
+
+.accept-btn{
+
+    flex:1;
+
+    border:none;
+
+    background:#22c55e;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.reject-btn{
+
+    flex:1;
+
+    border:none;
+
+    background:#ef4444;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+        LANDING PAGE STYLES
+========================================== */
+
+body.landing-body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+
+/* HEADER */
+
+.landing-header{
+    padding: 60px 20px 30px;
+}
+
+.landing-header h1{
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.landing-header p{
+    color: #cbd5e1;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* ROLE GRID */
+
+.role-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    padding: 40px 100px;
+}
+
+/* ROLE CARD */
+
+.role-card{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.role-card:hover{
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.15);
+}
+
+.role-card h3{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* START BUTTON */
+
+.start-btn{
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.start-btn:hover{
+    background: #16a34a;
+    transform: scale(1.05);
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Waste Management</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Bootstrap (optional for better UI) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="landing-body">
+
+<!-- HEADER -->
+<div class="landing-header text-center">
+
+    <h1>♻ Smart Waste Management System</h1>
+
+    <p>Smart • Clean • Sustainable City</p>
+
+</div>
+
+<!-- ROLE CARDS -->
+<div class="role-container">
+
+    <div class="role-card" onclick="goToLogin('admin')">
+        👨‍💼
+        <h3>Admin</h3>
+    </div>
+
+    <div class="role-card" onclick="goToLogin('driver')">
+        🚛
+        <h3>Driver</h3>
+    </div>
+
+    <div class="role-card" onclick="goToLogin('worker')">
+        👷
+        <h3>Worker</h3>
+    </div>
+
+    <div class="role-card" onclick="goToLogin('citizen')">
+        👤
+        <h3>Citizen</h3>
+    </div>
+
+</div>
+
+<!-- BUTTON -->
+<div class="text-center mt-4">
+
+    <button class="start-btn" onclick="goToLogin('admin')">
+        Get Started
+    </button>
+
+</div>
+
+<script>
+function goToLogin(role){
+    localStorage.setItem("role", role);
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+
+</html>

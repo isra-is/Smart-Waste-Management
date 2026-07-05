@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Driver Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/driver.css">
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <h1 class="mb-4">
+
+        🚛 Driver Dashboard
+
+    </h1>
+
+    <div class="driver-card">
+
+        <h3>Today's Assigned Route</h3>
+
+        <hr>
+
+        <p>
+
+            <strong>Truck:</strong>
+
+            Truck-01
+
+        </p>
+
+        <p>
+
+            <strong>Driver:</strong>
+
+            Rahul
+
+        </p>
+
+        <p>
+
+            <strong>Total Bins:</strong>
+
+            18
+
+        </p>
+
+        <p>
+
+            <strong>Estimated Distance:</strong>
+
+            22 km
+
+        </p>
+
+        <p>
+
+            <strong>Estimated Time:</strong>
+
+            2 Hours
+
+        </p>
+
+        <div class="mt-4">
+
+            <button
+                class="btn btn-success"
+                onclick="acceptRoute()">
+
+                ✅ Accept Route
+
+            </button>
+
+            <button
+                class="btn btn-danger ms-3"
+                onclick="rejectRoute()">
+
+                ❌ Reject Route
+
+            </button>
+
+        </div>
+
+        <div
+            id="routeStatus"
+            class="mt-4">
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/driver.js"></script>
+
+</body>
+
+</html>

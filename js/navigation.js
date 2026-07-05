@@ -42,12 +42,44 @@ pageTitle.textContent = pageTitles[page];
 
 // Initialize page-specific features
 
-if(page==="home"){
+if(page === "home"){
+
+    setTimeout(() => {
+
+        initializeMap();
+
+        console.log("Map loaded");
+
+        if (typeof startTruck === "function") {
+            startTruck();
+            console.log("Truck started");
+        } else {
+            console.error("startTruck not found");
+        }
+
+        if (typeof loadAlerts === "function") {
+            loadAlerts();
+        }
+
+    }, 200);
+
+}
+
+if(page === "bins"){
 
     setTimeout(()=>{
 
-        initializeMap();
-        startTruck();
+        loadBinsPage();
+
+    },100);
+
+}
+
+if(page==="trucks"){
+
+    setTimeout(()=>{
+
+        loadTruckPage();
 
     },100);
 

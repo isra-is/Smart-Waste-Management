@@ -1,0 +1,41 @@
+/* ==============================
+        DRIVER DASHBOARD
+============================== */
+
+body {
+    background: #f3f6fb;
+}
+
+.driver-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    max-width: 700px;
+}
+
+.driver-card h3 {
+    font-weight: 700;
+}
+
+.driver-card p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#routeStatus {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.status-success {
+    color: #22c55e;
+}
+
+.status-error {
+    color: #ef4444;
+}
+
+.status-waiting {
+    color: #f59e0b;
+}
