@@ -24,6 +24,8 @@ function initializeDashboard() {
 
     startCitySimulation();
 
+    startSimulation();
+
 }
 
 /* ----------------------------
