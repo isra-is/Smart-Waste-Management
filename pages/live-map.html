@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live Map | Smart Waste Management</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <style>
+
+        html,
+        body{
+            height:100%;
+            margin:0;
+            background:#f4f7fc;
+        }
+
+        #map{
+            width:100%;
+            height:80vh;
+            border-radius:15px;
+        }
+
+        .card{
+            border:none;
+            border-radius:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container-fluid mt-4">
+
+<div class="card shadow p-3">
+
+<h3 class="mb-3">🗺 Live Waste Collection Map</h3>
+
+<div id="map"></div>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+const map=L.map('map').setView([12.9716,77.5946],13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+maxZoom:19,
+}).addTo(map);
+
+// Smart Bins
+
+L.marker([12.9716,77.5946]).addTo(map)
+.bindPopup("BIN001<br>Fill Level : 90%");
+
+L.marker([12.9750,77.5990]).addTo(map)
+.bindPopup("BIN002<br>Fill Level : 45%");
+
+L.marker([12.9680,77.5910]).addTo(map)
+.bindPopup("BIN003<br>Fill Level : 20%");
+
+// Truck
+
+const truck=L.marker([12.9695,77.5930]).addTo(map)
+.bindPopup("Truck 01");
+
+let lat=12.9695;
+let lng=77.5930;
+
+setInterval(()=>{
+
+lat+=0.0004;
+lng+=0.0003;
+
+truck.setLatLng([lat,lng]);
+
+},1000);
+
+</script>
+
+</body>
+
+</html>
