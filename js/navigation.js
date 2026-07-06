@@ -37,8 +37,24 @@ async function loadPage(page){
 
         const html = await response.text();
 
-        content.innerHTML = html;
+content.innerHTML = html;
+
+// Scroll to top when changing pages
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
 pageTitle.textContent = pageTitles[page];
+
+if(page==="alerts"){
+
+    setTimeout(()=>{
+
+        loadAlerts();
+
+    },100);
+
+}
 
 // Initialize page-specific features
 
@@ -81,6 +97,48 @@ if(page==="trucks"){
     setTimeout(()=>{
 
         loadTruckPage();
+
+    },100);
+
+}
+
+if(page==="live-map"){
+
+    setTimeout(()=>{
+
+        if(typeof initializeMap==="function"){
+
+            initializeMap();
+
+        }
+
+        if(typeof startTruck==="function"){
+
+            startTruck();
+
+        }
+
+    },200);
+
+}
+
+    if(page==="citizens"){
+
+    setTimeout(()=>{
+
+        if(typeof renderComplaints==="function"){
+            renderComplaints();
+        }
+
+    },100);
+
+}
+
+if(page==="settings"){
+
+    setTimeout(()=>{
+
+        initializeSettings();
 
     },100);
 

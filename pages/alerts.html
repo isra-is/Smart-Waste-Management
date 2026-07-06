@@ -1,130 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ==========================================
+                ALERTS PAGE
+========================================== -->
 
-<head>
+<div class="dashboard-card">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="card-header">
 
-<title>Alerts | Smart Waste Management</title>
+        <h3>
+            🚨 Smart Alerts
+        </h3>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+        <span class="live-status">
+            ● LIVE
+        </span>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    </div>
 
-<style>
+    <div id="alertsContainer">
 
-body{
-    background:#f4f7fc;
-}
-
-.card{
-    border:none;
-    border-radius:15px;
-}
-
-.alert-card{
-    padding:20px;
-    border-left:6px solid;
-    margin-bottom:20px;
-    border-radius:10px;
-}
-
-.high{
-    border-color:red;
-    background:#ffeaea;
-}
-
-.medium{
-    border-color:orange;
-    background:#fff7e6;
-}
-
-.low{
-    border-color:green;
-    background:#edfcef;
-}
-
-.time{
-    color:gray;
-    font-size:14px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container mt-4">
-
-<h2 class="mb-4">
-🔔 Smart Alerts
-</h2>
-
-<div id="alerts"></div>
+    </div>
 
 </div>
-
-<script>
-
-const data=[
-
-{
-title:"BIN001 Full",
-msg:"Collection required immediately.",
-level:"high",
-time:"2 min ago"
-},
-
-{
-title:"Truck 01 Started Route",
-msg:"Driver has started today's collection.",
-level:"low",
-time:"5 min ago"
-},
-
-{
-title:"BIN004 75% Full",
-msg:"Schedule collection soon.",
-level:"medium",
-time:"10 min ago"
-},
-
-{
-title:"Collection Completed",
-msg:"Market Area cleaned successfully.",
-level:"low",
-time:"15 min ago"
-}
-
-];
-
-const container=document.getElementById("alerts");
-
-data.forEach(item=>{
-
-container.innerHTML+=`
-
-<div class="alert-card ${item.level} shadow">
-
-<h5>${item.title}</h5>
-
-<p>${item.msg}</p>
-
-<div class="time">
-<i class="bi bi-clock"></i>
-${item.time}
-</div>
-
-</div>
-
-`;
-
-});
-
-</script>
-
-</body>
-
-</html>

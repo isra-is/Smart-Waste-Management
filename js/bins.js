@@ -1,5 +1,5 @@
 /*=========================================
-        SMART BIN MANAGEMENT
+        SMART BINS MODULE
 =========================================*/
 
 function loadBinsPage() {
@@ -12,67 +12,146 @@ function loadBinsPage() {
 
     smartBins.forEach(bin => {
 
-        let status = "Normal";
-        let color = "#22c55e";
+        let color = "bg-success";
 
         if (bin.fill >= 90) {
 
-            status = "Overflow";
-            color = "#ef4444";
+            color = "bg-danger";
 
-        }
-        else if (bin.fill >= 60) {
+        } else if (bin.fill >= 70) {
 
-            status = "Almost Full";
-            color = "#f59e0b";
+            color = "bg-warning";
 
         }
 
         const card = document.createElement("div");
 
-        card.className = "bin-card";
+        card.className = "dashboard-card";
 
         card.innerHTML = `
 
-            <div class="bin-header">
-
-                <h3>${bin.name}</h3>
-
-                <span class="status-badge"
-                      style="background:${color};">
-
-                    ${status}
-
-                </span>
-
-            </div>
+            <h4>🗑 ${bin.name}</h4>
 
             <hr>
 
-            <p><strong>📊 Fill Level:</strong> ${bin.fill}%</p>
+            <p><strong>Fill Level</strong></p>
 
-            <p><strong>🔋 Battery:</strong> ${bin.battery}%</p>
+            <div class="progress mb-3">
 
-            <p><strong>🌡 Temperature:</strong> ${bin.temperature}°C</p>
+                <div class="progress-bar ${color}"
+                     style="width:${bin.fill}%">
 
-            <p><strong>💨 Smoke:</strong> ${bin.smoke ? "Detected" : "Safe"}</p>
+                    ${bin.fill}%
 
-            <p><strong>🚿 Washing:</strong> ${bin.washing ? "Required" : "Not Required"}</p>
+                </div>
 
-            <p><strong>📍 GPS:</strong></p>
+            </div>
 
-            <small>
+            <p>🔋 Battery : ${bin.battery}%</p>
 
-                ${bin.lat},
+            <p>🌡 Temperature : ${bin.temperature}°C</p>
 
-                ${bin.lng}
+            <p>🔥 Smoke :
+                ${bin.smoke ? "Detected" : "Normal"}
+            </p>
 
-            </small>
+            <p>🧹 Washing :
+                ${bin.washing ? "Required" : "Not Required"}
+            </p>
+
+            <div class="d-grid gap-2 mt-3">
+
+                <button
+                    class="btn btn-success"
+                    onclick="collectBin(${bin.id})">
+
+                    🚛 Collect Waste
+
+                </button>
+
+                <button
+                    class="btn btn-primary"
+                    onclick="scheduleWash(${bin.id})">
+
+                    🧹 Schedule Wash
+
+                </button>
+
+                <button
+                    class="btn btn-outline-secondary"
+                    onclick="viewBinOnMap(${bin.id})">
+
+                    📍 View on Map
+
+                </button>
+
+            </div>
 
         `;
 
         grid.appendChild(card);
 
     });
+
+}
+
+/*=========================================
+        BUTTON ACTIONS
+=========================================*/
+
+function collectBin(id) {
+
+    const bin = smartBins.find(b => b.id === id);
+
+    if (!bin) return;
+
+    bin.fill = 0;
+
+    loadBinsPage();
+
+    if (typeof updateStatistics === "function")
+        updateStatistics();
+
+    if (typeof loadAlerts === "function")
+        loadAlerts();
+
+    if (typeof addActivity === "function")
+        addActivity(`🚛 ${bin.name} collected successfully`);
+
+    if (typeof addNotification === "function")
+        addNotification(`${bin.name} has been emptied`);
+
+    if (typeof drawBins === "function")
+        drawBins();
+
+}
+
+function scheduleWash(id) {
+
+    const bin = smartBins.find(b => b.id === id);
+
+    if (!bin) return;
+
+    bin.washing = false;
+
+    loadBinsPage();
+
+    if (typeof addActivity === "function")
+        addActivity(`🧹 Washing scheduled for ${bin.name}`);
+
+    if (typeof addNotification === "function")
+        addNotification(`${bin.name} washing scheduled`);
+
+}
+
+function viewBinOnMap(id) {
+
+    const bin = smartBins.find(b => b.id === id);
+
+    if (!bin) return;
+
+    alert(
+        `${bin.name}\n\nLatitude : ${bin.lat}\nLongitude : ${bin.lng}`
+    );
 
 }

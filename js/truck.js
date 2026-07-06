@@ -177,6 +177,11 @@ function collectWaste(bin) {
 
     addActivity(
     `🚛 Truck collected ${bin.name}`
+    
+);
+
+addNotification(
+    `✅ ${bin.name} collected`
 );
 
 updateStatistics();

@@ -1046,3 +1046,93 @@ body.landing-body{
     font-size:18px;
 
 }
+
+/*==================================
+        NOTIFICATIONS
+==================================*/
+
+.notification-panel{
+
+    position:absolute;
+
+    top:75px;
+
+    right:25px;
+
+    width:320px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+    display:none;
+
+    padding:20px;
+
+    z-index:9999;
+
+}
+
+.notification-panel.show{
+
+    display:block;
+
+}
+
+.notification-item{
+
+    padding:12px;
+
+    border-bottom:1px solid #eee;
+
+    font-size:14px;
+
+}
+
+.notification-item:last-child{
+
+    border-bottom:none;
+
+}
+
+/*=================================
+        DARK MODE
+==================================*/
+
+body.dark-mode{
+
+    background:#111827;
+
+    color:white;
+
+}
+
+body.dark-mode .dashboard-card{
+
+    background:#1f2937;
+
+    color:white;
+
+}
+
+body.dark-mode .stat-card{
+
+    background:#1f2937;
+
+    color:white;
+
+}
+
+body.dark-mode .sidebar{
+
+    background:#0f172a;
+
+}
+
+body.dark-mode .topbar{
+
+    background:#1e293b;
+
+}

@@ -16,6 +16,8 @@ function initializeDashboard() {
 
     updateStatistics();
 
+    updateCharts();
+
     startStatisticsSimulation();
 
     connectReportButton();
@@ -25,6 +27,16 @@ function initializeDashboard() {
     startCitySimulation();
 
     startSimulation();
+
+    initializeNotifications();
+
+addNotification("🚛 Smart Waste System Started");
+
+addNotification("🗑 Dashboard Loaded");
+
+initializeCharts();
+
+
 
 }
 

@@ -51,4 +51,10 @@ function simulateBins() {
 
     }
 
+    if(typeof loadAlerts === "function"){
+
+        loadAlerts();
+
+    }
+
 }

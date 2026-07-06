@@ -1,8 +1,53 @@
-/*==================================================
-        SMART WASTE ALERT SYSTEM
-==================================================*/
+/*=========================================
+        SMART ALERTS
+=========================================*/
+
+const alerts = [];
+
+function generateAlerts() {
+
+    alerts.length = 0;
+
+    smartBins.forEach(bin => {
+
+        if (bin.fill >= 90) {
+
+            alerts.push({
+                type: "danger",
+                icon: "🚨",
+                title: "Overflow Alert",
+                message: `${bin.name} is ${bin.fill}% full`
+            });
+
+        } else if (bin.fill >= 70) {
+
+            alerts.push({
+                type: "warning",
+                icon: "⚠️",
+                title: "Nearly Full",
+                message: `${bin.name} is ${bin.fill}% full`
+            });
+
+        }
+
+        if (bin.washing) {
+
+            alerts.push({
+                type: "info",
+                icon: "🧹",
+                title: "Cleaning Required",
+                message: `${bin.name} needs washing`
+            });
+
+        }
+
+    });
+
+}
 
 function loadAlerts() {
+
+    generateAlerts();
 
     const container = document.getElementById("alertsContainer");
 
@@ -10,49 +55,30 @@ function loadAlerts() {
 
     container.innerHTML = "";
 
-    smartBins.forEach(bin => {
+    if (alerts.length === 0) {
 
-        let type = "";
-        let title = "";
-        let message = "";
-
-        if (bin.fill >= 90) {
-
-            type = "alert-danger";
-            title = "Overflow";
-            message = `${bin.name} is ${bin.fill}% full`;
-
-        }
-
-        else if (bin.washing) {
-
-            type = "alert-warning";
-            title = "Cleaning Required";
-            message = `${bin.name} needs washing`;
-
-        }
-
-        else {
-
-            type = "alert-success";
-            title = "Normal";
-            message = `${bin.name} is operating normally`;
-
-        }
-
-        const alert = document.createElement("div");
-
-        alert.className = `alert-item ${type}`;
-
-        alert.innerHTML = `
-
-            <h6>${title}</h6>
-
-            <p>${message}</p>
-
+        container.innerHTML = `
+            <div class="alert alert-success">
+                ✅ No active alerts.
+            </div>
         `;
 
-        container.appendChild(alert);
+        return;
+    }
+
+    alerts.forEach(alert => {
+
+        container.innerHTML += `
+
+            <div class="alert alert-${alert.type}">
+
+                <h5>${alert.icon} ${alert.title}</h5>
+
+                <p>${alert.message}</p>
+
+            </div>
+
+        `;
 
     });
 
