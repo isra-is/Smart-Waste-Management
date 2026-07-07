@@ -171,25 +171,23 @@ function redirectUser(role) {
         case "admin":
 
             window.location.href = "dashboard.html";
-
             break;
 
         case "driver":
 
             window.location.href = "driver.html";
-
             break;
 
         case "worker":
 
-            window.location.href = "worker.html";
-
+            alert("Worker Dashboard is under development.");
+            window.location.href = "login.html";
             break;
 
         case "citizen":
 
-            window.location.href = "pages/citizens.html";
-
+            alert("Citizen Dashboard is under development.");
+            window.location.href = "login.html";
             break;
 
         default:
