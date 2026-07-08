@@ -461,3 +461,226 @@ clock.innerHTML=new Date().toLocaleTimeString();
 
 
 console.log("Worker System Ready");
+
+/* ==========================================
+   SMART CITY DATABASE INTEGRATION
+========================================== */
+
+if (typeof smartBins !== "undefined") {
+
+    function loadAssignedBins() {
+
+        const table = document.getElementById("workerBins");
+
+        if (!table) return;
+
+        table.innerHTML = "";
+
+        smartBins.forEach((bin) => {
+
+            const priority =
+                bin.fillLevel >= 90 ? "High" :
+                bin.fillLevel >= 70 ? "Medium" :
+                "Low";
+
+            const color =
+                bin.fillLevel >= 90 ? "danger" :
+                bin.fillLevel >= 70 ? "warning" :
+                "success";
+
+            table.innerHTML += `
+
+<tr>
+
+<td>${bin.id}</td>
+
+<td>${bin.location}</td>
+
+<td>
+
+<div class="progress">
+
+<div class="progress-bar bg-${color}"
+style="width:${bin.fillLevel}%">
+
+${bin.fillLevel}%
+
+</div>
+
+</div>
+
+</td>
+
+<td>
+
+<span class="badge bg-${color}">
+
+${priority}
+
+</span>
+
+</td>
+
+<td>
+
+<span class="badge bg-primary">
+
+Assigned
+
+</span>
+
+</td>
+
+<td>
+
+<button
+class="btn btn-success btn-sm collectBtn"
+data-id="${bin.id}">
+
+Collect
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+        });
+
+        activateCollectButtons();
+
+    }
+
+}
+
+
+
+/* ==========================================
+        COLLECT BIN
+========================================== */
+
+function activateCollectButtons() {
+
+    document
+    .querySelectorAll(".collectBtn")
+    .forEach(btn => {
+
+        btn.onclick = function () {
+
+            const id = this.dataset.id;
+
+            const bin = smartBins.find(b => b.id === id);
+
+            if (!bin) return;
+
+            bin.fillLevel = 0;
+
+            stats.binsCollected++;
+
+            stats.tasksCompleted++;
+
+            stats.wasteCollected += 40;
+
+            updateDashboard();
+
+            loadAssignedBins();
+
+            addNotification("🗑 " + id + " collected.");
+
+        };
+
+    });
+
+}
+
+
+
+/* ==========================================
+        AUTO REFRESH
+========================================== */
+
+if (typeof smartBins !== "undefined") {
+
+    loadAssignedBins();
+
+    setInterval(loadAssignedBins,5000);
+
+}
+
+
+
+/* ==========================================
+        TRUCK STATUS
+========================================== */
+
+const truckStatus = {
+
+    id:"TRK-07",
+
+    driver:"Ahmed Khan",
+
+    fuel:75,
+
+    status:"Available"
+
+};
+
+
+
+setInterval(()=>{
+
+    truckStatus.fuel--;
+
+    if(truckStatus.fuel<0)
+        truckStatus.fuel=100;
+
+    const fuel=document.getElementById("fuelBar");
+
+    if(fuel){
+
+        fuel.style.width=truckStatus.fuel+"%";
+
+        fuel.innerHTML=truckStatus.fuel+"%";
+
+    }
+
+},15000);
+
+
+
+/* ==========================================
+        SHIFT TIMER
+========================================== */
+
+let seconds=0;
+
+const timer=document.createElement("div");
+
+timer.className="text-end fw-bold text-success";
+
+document.querySelector(".navbar").appendChild(timer);
+
+setInterval(()=>{
+
+    seconds++;
+
+    const h=Math.floor(seconds/3600);
+
+    const m=Math.floor((seconds%3600)/60);
+
+    const s=seconds%60;
+
+    timer.innerHTML=
+
+    `Shift Time :
+     ${h.toString().padStart(2,"0")} :
+     ${m.toString().padStart(2,"0")} :
+     ${s.toString().padStart(2,"0")}`;
+
+},1000);
+
+
+
+console.log("Worker Connected To Smart City Database");
