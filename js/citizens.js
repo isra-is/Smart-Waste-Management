@@ -53,3 +53,154 @@ function renderComplaints() {
     });
 
 }
+
+/* ==========================================
+   SMART WASTE MANAGEMENT
+   CITIZEN DASHBOARD
+========================================== */
+
+// ===============================
+// Citizen Statistics
+// ===============================
+
+const citizenStats = {
+    totalComplaints: 12,
+    resolved: 8,
+    pending: 4,
+    nearbyBins: 26
+};
+
+document.getElementById("totalComplaints").textContent =
+    citizenStats.totalComplaints;
+
+document.getElementById("resolvedComplaints").textContent =
+    citizenStats.resolved;
+
+document.getElementById("pendingComplaints").textContent =
+    citizenStats.pending;
+
+document.getElementById("nearbyBins").textContent =
+    citizenStats.nearbyBins;
+
+
+// ===============================
+// Complaint Form
+// ===============================
+
+const complaintForm = document.getElementById("complaintForm");
+
+if (complaintForm) {
+
+    complaintForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        alert("Complaint submitted successfully.");
+
+        complaintForm.reset();
+
+    });
+
+}
+
+
+// ===============================
+// Feedback Form
+// ===============================
+
+const feedbackForm = document.getElementById("feedbackForm");
+
+if (feedbackForm) {
+
+    feedbackForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+        alert("Thank you for your feedback.");
+
+        feedbackForm.reset();
+
+    });
+
+}
+
+
+// ===============================
+// Leaflet Map
+// ===============================
+
+const mapDiv = document.getElementById("citizenMap");
+
+if (mapDiv) {
+
+    const map = L.map("citizenMap").setView(
+        [13.3409, 74.7421],
+        13
+    );
+
+    L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        {
+            attribution: "&copy; OpenStreetMap contributors"
+        }
+    ).addTo(map);
+
+
+    // Citizen Location
+
+    L.marker([13.3409, 74.7421])
+
+        .addTo(map)
+
+        .bindPopup("You are here")
+
+        .openPopup();
+
+
+    // Smart Bins
+
+    const bins = [
+
+        {
+            name: "Karkala Market",
+            lat: 13.214,
+            lng: 74.992,
+            fill: 95
+        },
+
+        {
+            name: "Bus Stand",
+            lat: 13.335,
+            lng: 74.746,
+            fill: 82
+        },
+
+        {
+            name: "City Circle",
+            lat: 13.344,
+            lng: 74.752,
+            fill: 40
+        }
+
+    ];
+
+    bins.forEach(bin => {
+
+        L.marker([bin.lat, bin.lng])
+
+            .addTo(map)
+
+            .bindPopup(
+                `<b>${bin.name}</b><br>Fill Level : ${bin.fill}%`
+            );
+
+    });
+
+}
+
+
+// ===============================
+// Notifications
+// ===============================
+
+console.log("Citizen Dashboard Loaded Successfully");
