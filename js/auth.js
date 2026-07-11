@@ -117,38 +117,46 @@ function registerUser(event) {
 
 // Login Function
 function loginUser(event) {
+
     event.preventDefault();
 
     const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
+
+    const password = document.getElementById("password").value;
+
     const role = document.getElementById("role").value;
 
-    if (username === "" || password === "") {
-        alert("Please enter Username and Password.");
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find(u =>
+
+        u.email === username &&
+        u.password === password &&
+        u.role === role
+
+    );
+
+    if (!user) {
+
+        showMessage("Invalid email, password or role.", "danger");
+
         return;
+
     }
 
-    switch (role) {
-        case "admin":
-            window.location.href = "dashboard.html";
-            break;
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
 
-        case "driver":
-            window.location.href = "driver.html";
-            break;
+    showMessage("Login Successful!", "success");
 
-        case "worker":
-            window.location.href = "worker.html";
-            break;
+    setTimeout(() => {
 
-        case "citizen":
-            window.location.href = "pages/home.html";
-            break;
+        redirectUser(user.role);
 
-        default:
-            alert("Please select a valid role.");
-    }
+    }, 1000);
+
 }
+
+
 
 
 /* ==========================
