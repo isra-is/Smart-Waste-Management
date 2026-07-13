@@ -135,19 +135,31 @@ Then visit `http://localhost:8000` in your browser.
 
 ### Admin Dashboard
 
-![Admin Dashboard](screenshots/admin-dashboard.png)
+![Admin Dashboard](assests/images/screenshots/admin-dashboard.png)
 
 ### Live Map
 
-![Live Map](screenshots/live-map.png)
+![Live Map](assests/images/screenshots/live-map.png)
+
+### Smart Bins
+
+![Smart Bins](assests/images/screenshots/smart-bins.png)
+
+### Garbage Trucks
+
+![Garbage Trucks](assests/images/screenshots/garbage-trucks.png)
+
+### Alerts
+
+![Smart Alerts](assests/images/screenshots/alerts.png)
 
 ### Citizen Dashboard
 
-![Citizen Dashboard](screenshots/citizen-dashboard.png)
+![Citizen Dashboard](assests/images/screenshots/citizen-dashboard.png)
 
 #### Complaint History and Feedback
 
-![Citizen Complaint History and Feedback](screenshots/citizen-complaints.png)
+![Citizen Complaint History and Feedback](assests/images/screenshots/citizen-complaints.png)
 
 ## Roadmap
 
