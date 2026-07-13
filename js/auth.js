@@ -179,14 +179,12 @@ function redirectUser(role) {
 
         case "worker":
 
-            alert("Worker Dashboard is under development.");
-            window.location.href = "login.html";
+            window.location.href = "worker.html";
             break;
 
         case "citizen":
 
-            alert("Citizen Dashboard is under development.");
-            window.location.href = "login.html";
+            window.location.href = "pages/citizens.html";
             break;
 
         default:

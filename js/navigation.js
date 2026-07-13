@@ -122,9 +122,15 @@ if(page==="live-map"){
 
 }
 
-    if(page==="citizens"){
+if(page==="citizens"){
 
     setTimeout(()=>{
+
+        if(typeof initializeCitizenDashboard === "function"){
+
+            initializeCitizenDashboard();
+
+        }
 
         if(typeof renderComplaints==="function"){
             renderComplaints();

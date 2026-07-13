@@ -2,7 +2,14 @@
         Notifications
 ===================================*/
 
-const notifications=[];
+const notificationStorageKey = "smartWasteNotifications";
+const notifications = JSON.parse(localStorage.getItem(notificationStorageKey) || "[]");
+
+function saveNotifications(){
+
+    localStorage.setItem(notificationStorageKey, JSON.stringify(notifications));
+
+}
 
 function addNotification(message){
 
@@ -13,6 +20,9 @@ function addNotification(message){
         time:new Date().toLocaleTimeString()
 
     });
+
+    notifications.splice(20);
+    saveNotifications();
 
     renderNotifications();
 
@@ -28,17 +38,13 @@ function renderNotifications(){
 
     notifications.forEach(note=>{
 
-        list.innerHTML+=`
+        const item=document.createElement("div");
+        const time=document.createElement("strong");
 
-            <div class="notification-item">
-
-                <strong>${note.time}</strong><br>
-
-                ${note.text}
-
-            </div>
-
-        `;
+        item.className="notification-item";
+        time.textContent=note.time;
+        item.append(time, document.createElement("br"), note.text);
+        list.appendChild(item);
 
     });
 
