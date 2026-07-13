@@ -133,9 +133,21 @@ Then visit `http://localhost:8000` in your browser.
 
 > Add screenshots or a short GIF walkthrough here once your UI is ready — this section sells the project instantly to recruiters browsing GitHub.
 
-| Admin Dashboard | Live Map | Citizen Portal |
-|---|---|---|
-| `screenshots/admin.png` | `screenshots/map.png` | `screenshots/citizen.png` |
+### Admin Dashboard
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### Live Map
+
+![Live Map](screenshots/live-map.png)
+
+### Citizen Dashboard
+
+![Citizen Dashboard](screenshots/citizen-dashboard.png)
+
+#### Complaint History and Feedback
+
+![Citizen Complaint History and Feedback](screenshots/citizen-complaints.png)
 
 ## Roadmap
 
