@@ -3,7 +3,6 @@
 An IoT-enabled web application that helps municipal authorities monitor, manage, and optimize waste collection in real time. Smart bins report fill levels, GPS-enabled trucks are tracked live, and a centralized dashboard connects authorities, drivers, workers, and citizens — reducing manual monitoring, preventing overflow, and improving collection efficiency.
 
 ![Status](https://img.shields.io/badge/status-in--development-yellow)
-![License](https://img.shields.io/badge/license-MIT-blue)
 
 ---
 
@@ -18,7 +17,6 @@ An IoT-enabled web application that helps municipal authorities monitor, manage,
 - [Screenshots](#screenshots)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -152,11 +150,5 @@ Then visit `http://localhost:8000` in your browser.
 ## Contributing
 
 This is currently a solo academic/portfolio project, but suggestions and issues are welcome — feel free to open an issue or fork the repo.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
 
 *Built as a final-year project demonstrating full-stack web development, real-time systems design, and role-based application architecture.*
